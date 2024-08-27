@@ -1,0 +1,178 @@
+
+
+body {
+    background-color: rgb(172, 173, 153);
+    display: grid;
+    overflow: hidden;
+    animation: 3s ease-in-out 0s 1 brightness;
+}
+
+@keyframes brightness {
+    0% {
+      background-color: rgb(0, 0, 0);
+    }
+    100% {
+        background-color: rgb(172, 173, 153);
+    }
+  }
+
+h1 {
+    display: block;
+    position: relative;
+    color: rgb(105, 88, 59);
+    text-align: center;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 72px;
+    animation: 3s ease-in-out 0s 1 slideInFromLeft;
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+}
+
+@keyframes slideInFromLeft {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+.container {
+    display: grid;
+    place-items: center;
+    margin: auto;
+    grid-template: repeat(4, 1fr) / repeat(4, 1fr);
+    gap: 0px 0px;
+    
+}
+
+.container > div {
+    border: 0px solid rgb(221, 221, 221);
+    background-color: rgb(24, 24, 24);
+    width: 100px;
+    height: 150px;
+    animation: fadeInAnim ease-in-out 5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.fadeInText {
+    animation: fadeInTexts ease-in-out 7s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeInTexts {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+@keyframes fadeInAnim {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.on-hover-left {
+    display: block;
+    position: relative;
+    transition: 1s;
+    right: 0px;
+    
+}
+
+
+.on-hover-left:hover {
+    right: 40px;
+    filter: drop-shadow(10px 2px 2px #000000);
+    transition: 0.1s;
+}
+
+
+.on-hover-right {
+    display: block;
+    position: relative;
+    transition: 1s ease-in-out;
+    left: 0px;
+}
+
+
+.on-hover-right:hover {
+    left: 40px;
+    filter: drop-shadow(-10px 2px 2px #000000);
+    transition: 0.1s; 
+    
+}
+
+.high-zindex {
+    z-index: 2;
+}
+
+.bg-wrapper {
+    background-color: rgb(250, 250, 250);
+    width: 420px;
+    position: absolute;
+    height: 730px;
+    margin-left: 50vh;
+    margin-right: 50vh;
+    top: 184px;
+    left: 277px;
+    z-index: -1;
+    animation: 5s ease-in-out 0s 1 brightness-wrapper;
+}
+
+@keyframes brightness-wrapper {
+    0% {
+      background-color: rgb(0, 0, 0);
+    }
+    100% {
+        background-color: rgb(250, 250, 250);
+    }
+}
+
+.blur-effect {
+    background-color: rgb(119, 119, 119);
+    filter: blur(10px);
+    width: 470px;
+    position: absolute;
+    height: 800px;
+    margin-left: 50vh;
+    margin-right: 50vh;
+    top: 184px;
+    left: 255px;
+    z-index: -2;
+    animation: 3s ease-in-out 0s 1 blur-wrapper;
+}
+
+@keyframes blur-wrapper {
+    0% {
+      background-color: rgb(0, 0, 0);
+    }
+    100% {
+        background-color: rgb(119, 119, 119);
+    }
+}
+
+p {
+    position:relative;
+    color: aliceblue;
+    font-family: fantasy;
+    font-size: 60px;
+    line-height: 0px;
+    top: -15px;
+    left: 35px;
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+}
