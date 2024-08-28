@@ -1,10 +1,10 @@
 
 
 body {
-    background-color: rgb(172, 173, 153);
+    background-color: #FFFFFF;
     display: grid;
     overflow: hidden;
-    animation: 3s ease-in-out 0s 1 brightness;
+    animation: 2s ease-in-out 0s 1 brightness;
 }
 
 @keyframes brightness {
@@ -12,18 +12,30 @@ body {
       background-color: rgb(0, 0, 0);
     }
     100% {
-        background-color: rgb(172, 173, 153);
+        background-color: rgb(255, 255, 255);
     }
   }
+
+@font-face {
+    font-family: 'Akira'; /*a name to be used later*/
+    src: url('Akira Expanded Demo.otf'); /*URL to font*/
+}
+
+@font-face {
+    font-family: 'Bahn'; /*a name to be used later*/
+    src: url('BAHNSCHRIFT.TTF'); /*URL to font*/
+}
+
 
 h1 {
     display: block;
     position: relative;
-    color: rgb(105, 88, 59);
-    text-align: center;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 72px;
-    animation: 3s ease-in-out 0s 1 slideInFromLeft;
+    color: rgb(24, 24, 24);
+    text-align: left;
+    font-family:'Bahn';
+    font-size: 30px;
+    padding-left: 20px;
+    animation: 3s ease 0s 1 load-from-below;
     -webkit-user-select: none; /* Safari */        
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* IE10+/Edge */
@@ -43,8 +55,10 @@ h1 {
     display: grid;
     place-items: center;
     margin: auto;
+    padding-top: 15px;
     grid-template: repeat(4, 1fr) / repeat(4, 1fr);
     gap: 0px 0px;
+    animation: 3s ease 0s 1 load-from-below;
     
 }
 
@@ -53,15 +67,12 @@ h1 {
     background-color: rgb(24, 24, 24);
     width: 100px;
     height: 150px;
-    animation: fadeInAnim ease-in-out 5s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
+
 }
 
-.fadeInText {
-    animation: fadeInTexts ease-in-out 7s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
+p {
+    opacity: 0;
+    animation: 3s ease-in-out 2s 1 fadeInTexts forwards;
 }
 
 @keyframes fadeInTexts {
@@ -83,6 +94,10 @@ h1 {
     }
 }
 
+.top-window {
+    z-index: 5;
+}
+
 .on-hover-left {
     display: block;
     position: relative;
@@ -93,25 +108,93 @@ h1 {
 
 
 .on-hover-left:hover {
-    right: 40px;
-    filter: drop-shadow(10px 2px 2px #000000);
-    transition: 0.1s;
-}
 
+    filter: drop-shadow(10px 2px 5px #000000);
+    transition: 1s;
+    transform: scale(3);
+}
 
 .on-hover-right {
     display: block;
     position: relative;
     transition: 1s ease-in-out;
     left: 0px;
+    top: 0px
+}
+
+.on-hover-right:hover {
+
+    filter: drop-shadow(-10px 2px 5px #000000);
+    transition: 1s;
+    top: 100px;
+    transform: scale(3);
+    
+}
+
+.on-hover-CV {
+    display: block;
+    position: relative;
+    transition: 1s ease-in-out;
+    left: 0px;
+    bottom: 0px;
+    z-index: 2;
+}
+
+.on-hover-CV:hover {
+
+    filter: drop-shadow(-10px 2px 5px #000000);
+    transition: 1s;
+    bottom: 100px;
+    transform: scale(3);
+    
+}
+
+.on-hover-high-z-index {
+    display: block;
+    position: relative;
+    transition: 1s;
+    right: 0px;
+    z-index: 1;
 }
 
 
-.on-hover-right:hover {
-    left: 40px;
-    filter: drop-shadow(-10px 2px 2px #000000);
-    transition: 0.1s; 
+.on-hover-high-z-index:hover {
+
     
+    transition: 1s;
+    filter: drop-shadow(10px 2px 5px #000000);
+    transform: scale(3);
+    z-index: 6;
+}
+
+.on-hover-high-z-index-bottom {
+    display: block;
+    position: relative;
+    transition: 1s;
+    right: 0px;
+    z-index: 2;
+}
+
+
+.on-hover-high-z-index-bottom:hover {
+
+    filter: drop-shadow(10px 2px 5px #000000);
+    transition: 1s;
+    transform: scale(3);
+    z-index: 3;
+}
+ 
+
+@keyframes hoverScale {
+    
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(3);
+    }
+
 }
 
 .high-zindex {
@@ -125,10 +208,21 @@ h1 {
     height: 730px;
     margin-left: 50vh;
     margin-right: 50vh;
-    top: 184px;
+    top: 88px;
     left: 277px;
     z-index: -1;
-    animation: 5s ease-in-out 0s 1 brightness-wrapper;
+    animation: 6s ease-in-out 0s 1 brightness-wrapper;
+    animation: 3s ease 0s 1 load-from-below;
+}
+
+@keyframes load-from-below {
+    0% {
+        transform: translate(0px, 100vh);
+    }
+
+    100% {
+        transform: translate(0px , 0vh);
+    }
 }
 
 @keyframes brightness-wrapper {
@@ -141,36 +235,39 @@ h1 {
 }
 
 .blur-effect {
-    background-color: rgb(119, 119, 119);
-    filter: blur(10px);
+    background-color: rgb(216, 216, 216);
+    filter: blur(30px);
     width: 470px;
     position: absolute;
     height: 800px;
     margin-left: 50vh;
     margin-right: 50vh;
-    top: 184px;
-    left: 255px;
+    top: 80px;
+    left: 240px;
     z-index: -2;
-    animation: 3s ease-in-out 0s 1 blur-wrapper;
+    animation: 8s ease-in-out 0s 1 blur-wrapper;
+    
 }
 
 @keyframes blur-wrapper {
     0% {
       background-color: rgb(0, 0, 0);
+      opacity: 0;
     }
     100% {
-        background-color: rgb(119, 119, 119);
+        opacity: 1;
+        background-color: rgb(216, 216, 216);
     }
 }
 
 p {
     position:relative;
     color: aliceblue;
-    font-family: fantasy;
+    font-family: 'Akira';
     font-size: 60px;
     line-height: 0px;
     top: -15px;
-    left: 35px;
+    left: 22px;
     -webkit-user-select: none; /* Safari */        
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* IE10+/Edge */
