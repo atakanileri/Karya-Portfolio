@@ -124,10 +124,10 @@ p {
 
 .on-hover-right:hover {
 
-    filter: drop-shadow(-10px 2px 5px #000000);
+    filter: drop-shadow(-40px 10px 5px #000000);
     transition: 1s;
-    top: 100px;
-    transform: scale(3);
+    left: 35px;
+    transform: rotateY(70deg);
     
 }
 
