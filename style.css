@@ -122,7 +122,7 @@ p {
     top: 0px
 }
 
-.on-hover-right:active {
+.on-hover-right:hover {
 
     filter: drop-shadow(-40px 10px 5px #000000);
     transition: 1s;
